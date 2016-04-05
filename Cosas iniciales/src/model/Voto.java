@@ -1,15 +1,15 @@
 package model;
 
 public class Voto {
-	private Partidos partido;
+	private String opcion;
 	private Integer codColegio;
+	private String preferredColor;
 	
-	
-	public Partidos getPartido() {
-		return partido;
+	public String getOpcion() {
+		return opcion;
 	}
-	public Voto setPartido(Partidos partido) {
-		this.partido = partido;
+	public Voto setOpcion(String opcion) {
+		this.opcion = opcion;
 		return this;
 	}
 	public Integer getCodColegio() {
@@ -19,13 +19,20 @@ public class Voto {
 		this.codColegio = codColegio;
 		return this;
 	}
+	public String getPreferredColor() {
+		return preferredColor;
+	}
+	public Voto setPreferredColor(String preferredColor) {
+		this.preferredColor = preferredColor;
+		return this;
+	}
 	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((codColegio == null) ? 0 : codColegio.hashCode());
-		result = prime * result + ((partido == null) ? 0 : partido.hashCode());
+		result = prime * result + ((opcion == null) ? 0 : opcion.hashCode());
 		return result;
 	}
 	@Override
@@ -42,13 +49,13 @@ public class Voto {
 				return false;
 		} else if (!codColegio.equals(other.codColegio))
 			return false;
-		if (partido != other.partido)
+		if (opcion != other.opcion)
 			return false;
 		return true;
 	}
 	
 	@Override
 	public String toString() {
-		return "Voto [partido=" + partido + ", codColegio=" + codColegio + "]";
+		return "Voto [opción=" + opcion + ", codColegio=" + codColegio + "]";
 	}
 }

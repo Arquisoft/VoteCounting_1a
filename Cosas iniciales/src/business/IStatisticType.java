@@ -1,8 +1,8 @@
 package business;
 
-import model.Option;
+import model.Voto;
 import util.IDictionary;
 
 public interface IStatisticType {
-	public IDictionary<Option, Object> conjure(Object usefulData);
+	public IDictionary<Voto, Object> conjure(Object usefulData);
 }
