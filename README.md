@@ -9,7 +9,9 @@ Vote Counting
 
 # Authors
 
-* Jose Labra
+* Alejandro Cabrales
+* Alejandro Rodríguez
+* Carlos Lubián
 
 
 
