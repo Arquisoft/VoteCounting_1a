@@ -49,9 +49,7 @@ public class Voto {
 				return false;
 		} else if (!codColegio.equals(other.codColegio))
 			return false;
-		if (opcion != other.opcion)
-			return false;
-		return true;
+		return opcion == other.opcion;
 	}
 	
 	@Override
