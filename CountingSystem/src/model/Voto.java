@@ -6,12 +6,6 @@ public class Voto {
 	private String preferredColor;
 	private Integer numVotos;
 	
-	public Voto (String opcion , Integer codColegio , Integer numVotos){
-		this.opcion = opcion;
-		this.codColegio = codColegio;
-		this.numVotos = numVotos;
-	}
-	
 	public String getOpcion() {
 		return opcion;
 	}
@@ -37,8 +31,9 @@ public class Voto {
 	public int getNumVotos() {
 		return numVotos;
 	}
-	public void setNumVotos(int numVotos) {
+	public Voto setNumVotos(int numVotos) {
 		this.numVotos = numVotos;
+		return this;
 	}
 	@Override
 	public int hashCode() {

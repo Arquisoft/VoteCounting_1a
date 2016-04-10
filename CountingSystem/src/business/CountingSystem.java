@@ -9,6 +9,7 @@ import persistence.FakePersistenceSupplier;
 import persistence.IPersistenceSupplier;
 import util.Dictionary;
 import util.IDictionary;
+import util.KeyValuePair;
 
 public class CountingSystem {
 	/* Atributos de la clase */
@@ -46,6 +47,11 @@ public class CountingSystem {
 				public IDictionary<Voto, Integer> count(List<Voto> source) {
 					return new Dictionary<>();
 				}
+
+				@Override
+				public String findLikelyColour(String opcion) {
+					return "gray";
+				}
 			};
 		}
 		// Intentar instanciar el Persistence Supplier por defecto
@@ -56,7 +62,7 @@ public class CountingSystem {
 			this.psupplier = new IPersistenceSupplier() {
 
 				@Override
-				public Object readStatistics() {
+				public List<IDictionary<KeyValuePair<String, String>, Integer>> readStatistics() {
 					return null; // De todas formas, no se usa aquí
 				}
 
@@ -66,9 +72,8 @@ public class CountingSystem {
 				}
 
 				@Override
-				public int participation() throws SQLException {
-					// TODO Auto-generated method stub
-					return 0;
+				public int readParticipation() {
+					return 100;
 				}
 			};
 		}
@@ -82,29 +87,9 @@ public class CountingSystem {
 		List<Voto> votos = psupplier.readResults();
 		
 		// Asignar un color apropiado a cada voto
-		votos.forEach((voto) -> voto.setPreferredColor(findLikelyColour(voto.getOpcion())));
+		votos.forEach((voto) -> voto.setPreferredColor(ctype.findLikelyColour(voto.getOpcion())));
 		
 		return ctype.count(votos);
 	}
 	
-	/**
-	 * Encuentra el color más apropiado para cada opción
-	 * @param opcion Opción
-	 * @return Aproximación del color más apropiado
-	 */
-	private String findLikelyColour(String opcion) {
-		String str = opcion.toUpperCase();
-		
-		if(str.contains("PP") || str.contains("POPULAR"))
-			return "blue";
-		if(str.contains("PS") || str.contains("SOCIALISTA"))
-			return "red";
-		if((str.contains("CIU") && str.length() > 3) || str.contains("C'S"))
-			return "orange";
-		if(str.contains("PODEM") || str.contains("AHORA") || str.contains("MAREA"))
-			return "purple";
-		if(str.contains("UNIDA") || str.contains("IU"))
-			return "green";
-		return "grey";
-	}
 }

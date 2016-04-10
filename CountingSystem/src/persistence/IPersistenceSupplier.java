@@ -1,22 +1,23 @@
 package persistence;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import model.Voto;
+import util.IDictionary;
+import util.KeyValuePair;
 
 public interface IPersistenceSupplier {
 	/**
 	 * Devuelve una lista de los votos actuales
-	 * @throws SQLException 
 	 */
-	public List<Voto> readResults() throws SQLException;
+	public List<Voto> readResults();
 	/**
 	 * Devuelve algo con datos necesarios para
 	 * calcular estadísticas
-	 * @throws SQLException 
 	 */
-	public Object readStatistics() throws SQLException;
-	
-	public int participation() throws SQLException;
+	public List<IDictionary<KeyValuePair<String, String>, Integer>> readStatistics();
+	/**
+	 * Devuelve el porcentaje de participación
+	 */
+	public int readParticipation();
 }
