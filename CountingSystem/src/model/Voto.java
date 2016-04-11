@@ -52,14 +52,7 @@ public class Voto {
 		if (getClass() != obj.getClass())
 			return false;
 		Voto other = (Voto) obj;
-		if (codColegio == null) {
-			if (other.codColegio != null)
-				return false;
-		} else if (!codColegio.equals(other.codColegio))
-			return false;
-		if (opcion != other.opcion)
-			return false;
-		return true;
+		return other.getOpcion().equals(this.getOpcion()) && other.getCodColegio().equals(this.getCodColegio());
 	}
 	
 	@Override

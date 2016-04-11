@@ -83,7 +83,7 @@ public class CountingSystem {
 	 * Recupera, cuenta y devuelve los votos actuales
 	 * @throws SQLException 
 	 */
-	public IDictionary<Voto, Integer> count() throws SQLException {
+	public IDictionary<Voto, Integer> count() {
 		List<Voto> votos = psupplier.readResults();
 		
 		// Asignar un color apropiado a cada voto

@@ -10,17 +10,13 @@ import model.Voto;
 import util.KeyValuePair;
 
 public class JdbcPersistenceSupplier implements IPersistenceSupplier {
-	private static Connection conexion;
+	private Connection conexion;
 
-	private JdbcPersistenceSupplier() {
-	}
-
-	static {
+	public JdbcPersistenceSupplier() {
 		try {
 			conexion = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost", "SA", "");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println("No ha sido posible establecer la conexión con la base de datos.");
 		}
 	}
 
