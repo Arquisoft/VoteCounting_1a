@@ -44,7 +44,7 @@ public class CountingSystem {
 			this.ctype = new ICountType() {
 
 				@Override
-				public IDictionary<String, Integer> count(List<KeyValuePair<String, Integer>> source) {
+				public IDictionary<Voto, Integer> count(List<Voto> source) {
 					return new Dictionary<>();
 				}
 
@@ -67,7 +67,7 @@ public class CountingSystem {
 				}
 
 				@Override
-				public List<KeyValuePair<String, Integer>> readResults() {
+				public List<Voto> readResults() {
 					return new ArrayList<>();
 				}
 
@@ -83,8 +83,11 @@ public class CountingSystem {
 	 * Recupera, cuenta y devuelve los votos actuales
 	 * @throws SQLException 
 	 */
-	public IDictionary<String, Integer> count() {
-		List<KeyValuePair<String, Integer>> votos = psupplier.readResults();
+	public IDictionary<Voto, Integer> count() {
+		List<Voto> votos = psupplier.readResults();
+		
+		// Asignar un color apropiado a cada voto
+		votos.forEach((voto) -> voto.setPreferredColor(ctype.findLikelyColour(voto.getOpcion())));
 		
 		return ctype.count(votos);
 	}
