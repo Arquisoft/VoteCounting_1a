@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ASWneo-20160412044633.mdf;Initial Catalog=aspnet-ASWneo-20160412044633;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="c:\\users\\carlu\\documents\\visual\ studio\ 2015\\Projects\\ASWneo\\ASWneo\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="c:\\users\\carlu\\documents\\visual\ studio\ 2015\\Projects\\ASWneo\\ASWneo\\obj\\Release\\Package\\PackageTmp\\bin\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="ASWneo-Web.config Connection String" description="ASWneo Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Server=tcp:aswneo.database.windows.net,1433;Database=ASWneo;User ID=carlubian@aswneo;Password=H3lloKitty;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="c:\\users\\carlu\\documents\\visual\ studio\ 2015\\Projects\\ASWneo\\ASWneo\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ASWneo']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="c:\\users\\carlu\\documents\\visual\ studio\ 2015\\Projects\\ASWneo\\ASWneo\\obj\\Release\\Package\\PackageTmp\\bin\\Web\.config$" match="/configuration/connectionStrings/add[@name='ASWneo']/@connectionString" />
+  </parameter>
+</parameters>
