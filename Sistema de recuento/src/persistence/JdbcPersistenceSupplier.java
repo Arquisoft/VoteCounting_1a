@@ -21,19 +21,17 @@ public class JdbcPersistenceSupplier implements IPersistenceSupplier {
 	}
 
 	@Override
-	public List<Voto> readResults() {
+	public List<KeyValuePair<String, Integer>> readResults() {
 		try {
 			Statement st = conexion.createStatement();
-			ResultSet rs = st.executeQuery("select o.opcion , v.idlugar , v.numvotos" + " from TOPCIONES o , TVOTOS v"
-					+ " where o.id = v.idopcion;");
-			List<Voto> lista = new ArrayList<>();
+			ResultSet rs = st.executeQuery("select o.opcion, sum(numvotos) from tvotos v , topciones o where v.idopcion = o.id group by o.opcion;");
+			List<KeyValuePair<String, Integer>> lista = new ArrayList<>();
 
 			while (rs.next()) {
 				String opcion = rs.getString(1);
-				int idLugar = rs.getInt(2);
-				int numVotos = rs.getInt(3);
+				int numVotos = rs.getInt(2);
 
-				lista.add(new Voto().setOpcion(opcion).setCodColegio(idLugar).setNumVotos(numVotos));
+				lista.add(new KeyValuePair<>(opcion, numVotos));
 			}
 
 			return lista;
@@ -73,11 +71,14 @@ public class JdbcPersistenceSupplier implements IPersistenceSupplier {
 			Statement st = conexion.createStatement();
 			ResultSet rs1 = st.executeQuery("select sum(numVotos) from tvotos;");
 			ResultSet rs2 = st.executeQuery("select count(*) from tusers;");
+			rs1.next();
+			rs2.next();
 			int votantes = rs1.getInt(1);
 			int censados = rs2.getInt(1);
 			int porcentaje = (votantes * 100) / censados;
 			return porcentaje;
 		} catch (Throwable t) {
+			t.printStackTrace();
 			return 0;
 		}
 	}

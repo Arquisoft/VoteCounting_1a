@@ -10,7 +10,7 @@ public interface IPersistenceSupplier {
 	/**
 	 * Devuelve una lista de los votos actuales
 	 */
-	public List<Voto> readResults();
+	public List<KeyValuePair<String, Integer>> readResults();
 	/**
 	 * Devuelve algo con datos necesarios para
 	 * calcular estadísticas
