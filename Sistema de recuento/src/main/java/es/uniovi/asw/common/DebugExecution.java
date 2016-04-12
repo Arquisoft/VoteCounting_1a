@@ -1,13 +1,10 @@
-package common;
+package main.java.es.uniovi.asw.common;
 
-import java.util.List;
-
-import business.CountingSystem;
-import business.DirectCountType;
-import business.StandardStatisticType;
-import business.StatisticsSystem;
-import model.Voto;
-import persistence.JdbcPersistenceSupplier;
+import main.java.es.uniovi.asw.bussines.CountingSystem;
+import main.java.es.uniovi.asw.bussines.DirectCountType;
+import main.java.es.uniovi.asw.bussines.StandardStatisticType;
+import main.java.es.uniovi.asw.bussines.StatisticsSystem;
+import main.java.es.uniovi.asw.persistence.JdbcPersistenceSupplier;
 import util.IDictionary;
 import util.KeyValuePair;
 
@@ -55,7 +52,7 @@ public class DebugExecution {
 	
 	private static void printCosaGrande(IDictionary<KeyValuePair<String, String>, Integer> cosaGrande) {
 		cosaGrande.forEach(kvp -> {
-			System.out.println("Ciudad: " + kvp.key.key + ". Opción: " + kvp.key.value + ". NumVotos: " + kvp.value);
+			System.out.println("Ciudad: " + kvp.key.key + ". Opciï¿½n: " + kvp.key.value + ". NumVotos: " + kvp.value);
 		});
 	}
 }

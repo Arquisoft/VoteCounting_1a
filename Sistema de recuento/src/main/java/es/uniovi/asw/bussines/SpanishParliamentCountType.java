@@ -1,15 +1,13 @@
-package business;
+package main.java.es.uniovi.asw.bussines;
 
 import java.util.List;
 
-import model.Voto;
-import util.Dictionary;
 import util.IDictionary;
 import util.KeyValuePair;
 
 /**
  * Tipo de recuento utilizado en las elecciones al
- * parlamento español.
+ * parlamento espaï¿½ol.
  */
 public class SpanishParliamentCountType implements ICountType {
 

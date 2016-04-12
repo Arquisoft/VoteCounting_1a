@@ -1,12 +1,10 @@
-package persistence;
+package main.java.es.uniovi.asw.persistence;
 
 import java.sql.*;
 import java.util.ArrayList;
 import util.Dictionary;
 import util.IDictionary;
 import java.util.List;
-
-import model.Voto;
 import util.KeyValuePair;
 
 public class JdbcPersistenceSupplier implements IPersistenceSupplier {
@@ -16,7 +14,7 @@ public class JdbcPersistenceSupplier implements IPersistenceSupplier {
 		try {
 			conexion = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost", "SA", "");
 		} catch (SQLException e) {
-			System.err.println("No ha sido posible establecer la conexión con la base de datos.");
+			System.err.println("No ha sido posible establecer la conexiï¿½n con la base de datos.");
 		}
 	}
 

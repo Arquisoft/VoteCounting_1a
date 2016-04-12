@@ -1,17 +1,16 @@
-package business;
+package main.java.es.uniovi.asw.bussines;
 
 import java.util.List;
 
-import model.Voto;
 import util.IDictionary;
 import util.KeyValuePair;
 
 public interface ICountType {
 	public IDictionary<String, Integer> count(List<KeyValuePair<String, Integer>> source);
 	/**
-	 * Encuentra el color más apropiado para cada opción
-	 * @param opcion Opción
-	 * @return Aproximación del color más apropiado
+	 * Encuentra el color mï¿½s apropiado para cada opciï¿½n
+	 * @param opcion Opciï¿½n
+	 * @return Aproximaciï¿½n del color mï¿½s apropiado
 	 */
 	public String findLikelyColour(String opcion);
 }

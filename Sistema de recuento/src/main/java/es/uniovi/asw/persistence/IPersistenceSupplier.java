@@ -1,8 +1,7 @@
-package persistence;
+package main.java.es.uniovi.asw.persistence;
 
 import java.util.List;
 
-import model.Voto;
 import util.IDictionary;
 import util.KeyValuePair;
 
@@ -13,11 +12,11 @@ public interface IPersistenceSupplier {
 	public List<KeyValuePair<String, Integer>> readResults();
 	/**
 	 * Devuelve algo con datos necesarios para
-	 * calcular estadísticas
+	 * calcular estadï¿½sticas
 	 */
 	public List<IDictionary<KeyValuePair<String, String>, Integer>> readStatistics();
 	/**
-	 * Devuelve el porcentaje de participación
+	 * Devuelve el porcentaje de participaciï¿½n
 	 */
 	public int readParticipation();
 }

@@ -1,13 +1,13 @@
-package business;
+package main.java.es.uniovi.asw.bussines;
 
 import java.util.List;
 
-import persistence.IPersistenceSupplier;
+import main.java.es.uniovi.asw.persistence.IPersistenceSupplier;
 import util.IDictionary;
 import util.KeyValuePair;
 
 /**
- * Estadísticas estándar
+ * Estadï¿½sticas estï¿½ndar
  */
 public class StandardStatisticType implements IStatisticType {
 

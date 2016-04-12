@@ -1,24 +1,22 @@
-package business;
+package main.java.es.uniovi.asw.bussines;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import model.Voto;
-import persistence.FakePersistenceSupplier;
-import persistence.IPersistenceSupplier;
+import main.java.es.uniovi.asw.persistence.FakePersistenceSupplier;
+import main.java.es.uniovi.asw.persistence.IPersistenceSupplier;
 import util.Dictionary;
 import util.IDictionary;
 import util.KeyValuePair;
 
-public class StatisticsSystem {
+public class CountingSystem {
 	/* Atributos de la clase */
-	private IStatisticType stype;
+	private ICountType ctype;
 	private IPersistenceSupplier psupplier;
 
 	/* Clases por defecto para los atributos de la clase */
-	private static final Class<? extends IStatisticType> defaultStatisticType = 
-			StandardStatisticType.class;
+	private static final Class<? extends ICountType> defaultCountType = 
+			DirectCountType.class;
 	private static final Class<? extends IPersistenceSupplier> defaultPersistenceSupplier =
 			FakePersistenceSupplier.class;
 
@@ -26,8 +24,8 @@ public class StatisticsSystem {
 	 * Inicializa un nuevo CountingSystem con un Count Type y Persistence
 	 * Supplier determinados
 	 */
-	public StatisticsSystem(IStatisticType ctype, IPersistenceSupplier psupplier) {
-		this.stype = ctype;
+	public CountingSystem(ICountType ctype, IPersistenceSupplier psupplier) {
+		this.ctype = ctype;
 		this.psupplier = psupplier;
 	}
 
@@ -35,25 +33,22 @@ public class StatisticsSystem {
 	 * Inicializa un nuevo CountingSystem con un Count Type y
 	 * PersistenceSupplier por defecto
 	 */
-	public StatisticsSystem() {
+	public CountingSystem() {
 		// Intentar instanciar el Count Type por defecto
 		try {
-			this.stype = defaultStatisticType.newInstance();
+			this.ctype = defaultCountType.newInstance();
 		// Si falla, crear uno sobre la marcha que no haga nada
 		} catch (Throwable t) {
-			this.stype = new IStatisticType() {
+			this.ctype = new ICountType() {
 
 				@Override
-				public List<IDictionary<KeyValuePair<String, String>, Integer>> conjure(
-						Object usefulData) {
-					// TODO Auto-generated method stub
-					return null;
+				public IDictionary<String, Integer> count(List<KeyValuePair<String, Integer>> source) {
+					return new Dictionary<>();
 				}
 
 				@Override
-				public int getIndiceParticipacion(Object usefulData) {
-					// TODO Auto-generated method stub
-					return 0;
+				public String findLikelyColour(String opcion) {
+					return "gray";
 				}
 			};
 		}
@@ -66,7 +61,7 @@ public class StatisticsSystem {
 
 				@Override
 				public List<IDictionary<KeyValuePair<String, String>, Integer>> readStatistics() {
-					return null; // De todas formas, no se usa aquí
+					return null; // De todas formas, no se usa aquï¿½
 				}
 
 				@Override
@@ -86,12 +81,10 @@ public class StatisticsSystem {
 	 * Recupera, cuenta y devuelve los votos actuales
 	 * @throws SQLException 
 	 */
-	public List<IDictionary<KeyValuePair<String, String>, Integer>> getEstadisticas() {
-		return stype.conjure(this.psupplier);
-	}
-	
-	public int getParticipacion() {
-		return psupplier.readParticipation();
+	public IDictionary<String, Integer> count() {
+		List<KeyValuePair<String, Integer>> votos = psupplier.readResults();
+		
+		return ctype.count(votos);
 	}
 	
 }

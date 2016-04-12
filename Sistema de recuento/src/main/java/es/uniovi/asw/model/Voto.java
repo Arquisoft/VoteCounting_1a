@@ -1,4 +1,4 @@
-package model;
+package main.java.es.uniovi.asw.model;
 
 public class Voto {
 	private String opcion;
@@ -57,6 +57,6 @@ public class Voto {
 	
 	@Override
 	public String toString() {
-		return "Voto [opción=" + opcion + ", codColegio=" + codColegio + "]";
+		return "Voto [opciï¿½n=" + opcion + ", codColegio=" + codColegio + "]";
 	}
 }
