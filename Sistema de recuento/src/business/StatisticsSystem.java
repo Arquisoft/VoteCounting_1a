@@ -4,10 +4,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Voto;
 import persistence.FakePersistenceSupplier;
 import persistence.IPersistenceSupplier;
-import util.Dictionary;
+import persistence.SQLServerBridge;
 import util.IDictionary;
 import util.KeyValuePair;
 
@@ -87,11 +86,16 @@ public class StatisticsSystem {
 	 * @throws SQLException 
 	 */
 	public List<IDictionary<KeyValuePair<String, String>, Integer>> getEstadisticas() {
-		return stype.conjure(this.psupplier);
+		List<IDictionary<KeyValuePair<String, String>, Integer>> cosas = stype.conjure(this.psupplier);
+		SQLServerBridge.sendStatistics(cosas);
+		return cosas;
 	}
 	
 	public int getParticipacion() {
-		return psupplier.readParticipation();
+		int indice = psupplier.readParticipation();
+		SQLServerBridge.sendParticipation(indice);
+		
+		return indice;
 	}
 	
 }

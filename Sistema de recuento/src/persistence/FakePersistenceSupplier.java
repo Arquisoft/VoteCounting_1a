@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import model.Voto;
 import util.Dictionary;
 import util.IDictionary;
 import util.KeyValuePair;

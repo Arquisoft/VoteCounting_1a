@@ -1,12 +1,9 @@
 package common;
 
-import java.util.List;
-
 import business.CountingSystem;
 import business.DirectCountType;
 import business.StandardStatisticType;
 import business.StatisticsSystem;
-import model.Voto;
 import persistence.JdbcPersistenceSupplier;
 import util.IDictionary;
 import util.KeyValuePair;
@@ -14,20 +11,20 @@ import util.KeyValuePair;
 public class DebugExecution {
 
 	public static void main(String[] args) {
-		CountingSystem cs = new CountingSystem();
-		
-		IDictionary<String, Integer> votos = cs.count();
-		
-		System.out.println("\tVotos contados (Base de datos de a bulto):");
-		votos.forEach(DebugExecution::printKVP);
-		
-		System.out.print("\tVotos al PP: ");
-		System.out.println(votos.stream().filter(kvp -> kvp.key.equals("PP")).findFirst().get().value);
-		System.out.print("\tVotos al PSOE: ");
-		System.out.println(votos.stream().filter(kvp -> kvp.key.equals("PSOE")).findFirst().get().value);
-		System.out.print("\tVotos en BLANCO: ");
-		System.out.println(votos.stream().filter(kvp -> kvp.key.equals("BLANCO")).findFirst().get().value);
-		
+//		CountingSystem cs = new CountingSystem();
+//		
+//		IDictionary<String, Integer> votos = cs.count();
+//		
+//		System.out.println("\tVotos contados (Base de datos de a bulto):");
+//		votos.forEach(DebugExecution::printKVP);
+//		
+//		System.out.print("\tVotos al PP: ");
+//		System.out.println(votos.stream().filter(kvp -> kvp.key.equals("PP")).findFirst().get().value);
+//		System.out.print("\tVotos al PSOE: ");
+//		System.out.println(votos.stream().filter(kvp -> kvp.key.equals("PSOE")).findFirst().get().value);
+//		System.out.print("\tVotos en BLANCO: ");
+//		System.out.println(votos.stream().filter(kvp -> kvp.key.equals("BLANCO")).findFirst().get().value);
+//		
 		
 		CountingSystem sc = new CountingSystem(new DirectCountType(), new JdbcPersistenceSupplier());
 		

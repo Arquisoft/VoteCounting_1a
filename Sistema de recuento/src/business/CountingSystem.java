@@ -4,9 +4,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Voto;
 import persistence.FakePersistenceSupplier;
 import persistence.IPersistenceSupplier;
+import persistence.SQLServerBridge;
 import util.Dictionary;
 import util.IDictionary;
 import util.KeyValuePair;
@@ -86,7 +86,10 @@ public class CountingSystem {
 	public IDictionary<String, Integer> count() {
 		List<KeyValuePair<String, Integer>> votos = psupplier.readResults();
 		
-		return ctype.count(votos);
+		IDictionary<String, Integer> result = ctype.count(votos);
+		SQLServerBridge.sendVoteCount(result);
+		
+		return result;
 	}
 	
 }

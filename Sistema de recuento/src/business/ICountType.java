@@ -2,7 +2,6 @@ package business;
 
 import java.util.List;
 
-import model.Voto;
 import util.IDictionary;
 import util.KeyValuePair;
 

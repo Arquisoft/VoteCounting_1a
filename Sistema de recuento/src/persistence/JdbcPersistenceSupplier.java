@@ -6,7 +6,6 @@ import util.Dictionary;
 import util.IDictionary;
 import java.util.List;
 
-import model.Voto;
 import util.KeyValuePair;
 
 public class JdbcPersistenceSupplier implements IPersistenceSupplier {
