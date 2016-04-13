@@ -1,4 +1,4 @@
-package es.uniovi.asw.controller;
+package main.java.es.uniovi.asw.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

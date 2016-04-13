@@ -1,4 +1,4 @@
-package es.uniovi.asw;
+package main.java.es.uniovi.asw;
 
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
