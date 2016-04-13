@@ -15,8 +15,8 @@ Vote Counting
 # Guía de uso
 
 * En el proyecto se han usado dos librerías que no están disponibles en los repositorios de Maven. Una de ellas, sqljdbc42.jar está desarrollada por Microsoft para interactuar con bases de datos SQL Server. La otra, jcorlib.jar, está hecha por uno de los miembros del equipo, Carlos Lubián, específicamente para este proyecto, proporcionando una implementación mejorada de los mapas de Java. Para compilar el proyecto con Maven, es necesario añadir dichas librerías (que están incluidas en la carpeta 'lib') al repositorio local, con estas instrucciones:
-* mvn install:install-file -DgroupId=com.microsoft.sqlserver.jdbc -DartifactId=sqljdbc42 -Dversion=6.0 -Dpackaging=jar -DgeneratePom=true -Dfile=sqljdbc42.jar (ruta hasta el fichero)
-* mvn install:install-file -DgroupId=jcorlib -DartifactId=jcorlib -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true -Dfile=jcorlib.jar (ruta hasta el fichero)
+ * mvn install:install-file -DgroupId=com.microsoft.sqlserver.jdbc -DartifactId=sqljdbc42 -Dversion=6.0 -Dpackaging=jar -DgeneratePom=true -Dfile=sqljdbc42.jar (ruta hasta el fichero)
+ * mvn install:install-file -DgroupId=jcorlib -DartifactId=jcorlib -Dversion=1.0 -Dpackaging=jar -DgeneratePom=true -Dfile=jcorlib.jar (ruta hasta el fichero)
 * Debido al uso de estas librerías externas, Travis no es capaz de construir el proyecto, ya que no dispone de ellas.
 
 # Funcionamiento
