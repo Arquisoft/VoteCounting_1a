@@ -93,7 +93,8 @@ public class SQLServerBridge {
 			con.close();
 			
 		} catch (Throwable t) {
-			
+			t.printStackTrace();
 		}
 	}
 }
+

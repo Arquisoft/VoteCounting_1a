@@ -11,20 +11,6 @@ import util.KeyValuePair;
 public class DebugExecution {
 
 	public static void main(String[] args) {
-		CountingSystem cs = new CountingSystem();
-		
-		IDictionary<String, Integer> votos = cs.count();
-		
-		System.out.println("\tVotos contados (Base de datos de a bulto):");
-		votos.forEach(DebugExecution::printKVP);
-		
-		System.out.print("\tVotos al PP: ");
-		System.out.println(votos.stream().filter(kvp -> kvp.key.equals("PP")).findFirst().get().value);
-		System.out.print("\tVotos al PSOE: ");
-		System.out.println(votos.stream().filter(kvp -> kvp.key.equals("PSOE")).findFirst().get().value);
-		System.out.print("\tVotos en BLANCO: ");
-		System.out.println(votos.stream().filter(kvp -> kvp.key.equals("BLANCO")).findFirst().get().value);
-		
 		
 		CountingSystem sc = new CountingSystem(new DirectCountType(), new JdbcPersistenceSupplier());
 		
@@ -52,7 +38,7 @@ public class DebugExecution {
 	
 	private static void printCosaGrande(IDictionary<KeyValuePair<String, String>, Integer> cosaGrande) {
 		cosaGrande.forEach(kvp -> {
-			System.out.println("Ciudad: " + kvp.key.key + ". Opci�n: " + kvp.key.value + ". NumVotos: " + kvp.value);
+			System.out.println("Ciudad: " + kvp.key.key + ". Opción: " + kvp.key.value + ". NumVotos: " + kvp.value);
 		});
 	}
 }

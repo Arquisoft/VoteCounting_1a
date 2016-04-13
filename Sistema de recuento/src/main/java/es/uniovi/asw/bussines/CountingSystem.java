@@ -3,8 +3,10 @@ package main.java.es.uniovi.asw.bussines;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 import main.java.es.uniovi.asw.persistence.FakePersistenceSupplier;
 import main.java.es.uniovi.asw.persistence.IPersistenceSupplier;
+import main.java.es.uniovi.asw.persistence.SQLServerBridge;
 import util.Dictionary;
 import util.IDictionary;
 import util.KeyValuePair;
@@ -84,7 +86,10 @@ public class CountingSystem {
 	public IDictionary<String, Integer> count() {
 		List<KeyValuePair<String, Integer>> votos = psupplier.readResults();
 		
-		return ctype.count(votos);
+		IDictionary<String, Integer> result = ctype.count(votos);
+		SQLServerBridge.sendVoteCount(result);
+		
+		return result;
 	}
 	
 }

@@ -6,6 +6,7 @@ import java.util.List;
 
 import main.java.es.uniovi.asw.persistence.FakePersistenceSupplier;
 import main.java.es.uniovi.asw.persistence.IPersistenceSupplier;
+import main.java.es.uniovi.asw.persistence.SQLServerBridge;
 import util.IDictionary;
 import util.KeyValuePair;
 
@@ -85,11 +86,18 @@ public class StatisticsSystem {
 	 * @throws SQLException 
 	 */
 	public List<IDictionary<KeyValuePair<String, String>, Integer>> getEstadisticas() {
-		return stype.conjure(this.psupplier);
+		List<IDictionary<KeyValuePair<String, String>, Integer>> cosas = stype.conjure(this.psupplier);
+		System.out.println("Consigo los datos");
+		SQLServerBridge.sendStatistics(cosas);
+		System.out.println("Envío los datos");
+		return cosas;
 	}
 	
 	public int getParticipacion() {
-		return psupplier.readParticipation();
+		int indice = psupplier.readParticipation();
+		SQLServerBridge.sendParticipation(indice);
+		
+		return indice;
 	}
 	
 }
