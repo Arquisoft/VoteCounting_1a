@@ -29,7 +29,7 @@ Vote Counting
 
 * La página web donde se pueden ver los resultados no está integrada en el proyecto principal, sino que se relaciona con él a través de una base de datos SQL Server que actúa como intermediaria. Una consecuencia de esto es que desde el proyecto no es posible llevar a cabo pruebas web
 * Como funcionalidad adicional, también es posible recibir los resultados de la votación mediante Telegram. El funcionamiento se basa en un bot hecho por nosotros, al cual se accede del siguiente modo:
-** Descargar e instalar Telegram
-** Buscar al bot por su nombre: @asw_bot
-** Iniciar una conversación con él
-** Preguntarle: ASW, ¿Cómo van las elecciones?
+  * Descargar e instalar Telegram
+  * Buscar al bot por su nombre: @asw_bot
+  * Iniciar una conversación con él
+  * Preguntarle: ASW, ¿Cómo van las elecciones?
